@@ -1,0 +1,10 @@
+aria2
+httpie
+
+fzf
+gnupg
+
+pyenv
+pyenv-virtualenv
+exenv
+erlang
