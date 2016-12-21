@@ -15,6 +15,10 @@ Plug 'plasticboy/vim-markdown'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'pearofducks/ansible-vim'
+Plug 'Valloric/YouCompleteMe'
+
+" Colors
+Plug 'effkay/argonaut.vim'
 
 call plug#end()
 
@@ -156,3 +160,5 @@ let g:vim_markdown_folding_disabled = 1
 
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeShowHidden = 1
+
+colorscheme argonaut
