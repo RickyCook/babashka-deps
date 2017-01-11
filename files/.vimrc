@@ -5,6 +5,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'rickycook/vim-my-settings'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -106,9 +108,9 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
 
 set ai "Auto indent
 set si "Smart indent
