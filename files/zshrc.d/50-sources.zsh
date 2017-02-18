@@ -6,6 +6,7 @@ try_source ~/.fzf.zsh
 try_source ~/google-cloud-sdk/path.zsh.inc
 try_source ~/google-cloud-sdk/completion.zsh.inc
 try_source ~/.iterm2_shell_integration.zsh
+try_source /usr/local/bin/aws_zsh_completer.sh
 
 has_bin pyenv  && eval "$(pyenv init -)"
 has_bin exenv  && eval "$(exenv init -)"
