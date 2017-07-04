@@ -159,6 +159,7 @@ noremap <leader>p :Files<CR>
 noremap <leader>c :Commands<CR>
 
 let g:vim_markdown_folding_disabled = 1
+let g:jsx_ext_required = 0
 
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeShowHidden = 1
