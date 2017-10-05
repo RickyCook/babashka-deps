@@ -12,3 +12,7 @@ has_bin pyenv  && eval "$(pyenv init -)"
 has_bin exenv  && eval "$(exenv init -)"
 has_bin nodenv && eval "$(nodenv init -)"
 has_bin rbenv  && eval "$(rbenv init -)"
+
+has_bin kubectl && source <(kubectl completion zsh)
+has_bin kops    && source <(kops completion zsh)
+has_bin helm    && source <(helm completion zsh)
