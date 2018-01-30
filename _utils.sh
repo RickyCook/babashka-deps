@@ -18,6 +18,27 @@ function file_linked() {
     }
     function meet() {
         rm -f "$link_target"
+        mkdir -p "$(dirname "$link_target")"
         ln -s "$link_source" "$link_target"
+    }
+}
+
+function brew_tapped() {
+    cask="$1"
+    function is_met() {
+        brew tap | grep -e "^$cask\$"
+    }
+    function meet() {
+        brew tap "$cask"
+    }
+}
+function cask_installed()  {
+    full_package="$1"
+    lite_package="$(basename "$full_package")"
+    function is_met() {
+        brew cask list | grep -e "^$lite_package\$"
+    }
+    function meet() {
+        brew cask install "$full_package"
     }
 }

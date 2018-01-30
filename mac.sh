@@ -4,6 +4,6 @@ function mac() {
     requires git
     requires zsh
     requires vim
-    requires syncthing
     requires packages
+    requires casks
 }

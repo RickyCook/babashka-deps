@@ -4,7 +4,6 @@ PACKAGES=(
     httpie
     fzf
     gnupg
-    keybase
     jq
     nmap
     packer
@@ -14,7 +13,6 @@ PACKAGES=(
     sassc
     socat
     sqlite
-    sudolikeaboss
     the_silver_searcher
     tig
     tmux
@@ -30,6 +28,7 @@ PACKAGES=(
     nodenv
     rbenv
     rbenv-bundler
+    autoenv
 
     erlang
     go
@@ -52,4 +51,3 @@ for package in "${PACKAGES[@]}"; do
         }
     "
 done
-

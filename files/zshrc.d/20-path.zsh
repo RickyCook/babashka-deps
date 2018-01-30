@@ -5,12 +5,12 @@ while read dir; do
 done <<END
     $HOME/bin
     $HOME/.local/bin
+    /usr/local/bin
+    /usr/local/sbin
     /usr/bin
     /bin
     /usr/sbin
     /sbin
-    /usr/local/bin
-    /usr/local/sbin
 END
 
 # Don't check for existance
