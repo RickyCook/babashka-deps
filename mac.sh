@@ -5,4 +5,5 @@ function mac() {
     requires zsh
     requires vim
     requires packages
+    requires casks
 }
