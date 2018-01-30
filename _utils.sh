@@ -63,3 +63,7 @@ function github_clone_repo() {
 function bbs_clone_repo() {
     github_clone_repo "BlueBikeSolutions/$1" "$2"
 }
+
+function safe_name() {
+    echo "$1" | sed 's/[^a-zA-Z0-9_-]/_/g'
+}
