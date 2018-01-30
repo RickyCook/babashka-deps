@@ -3,7 +3,8 @@ PATH=""
 while read dir; do
     [ -d "$dir" ] && PATH="$PATH:$dir"
 done <<END
-    ~/bin
+    $HOME/bin
+    $HOME/.local/bin
     /usr/bin
     /bin
     /usr/sbin
