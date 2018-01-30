@@ -18,6 +18,14 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'pearofducks/ansible-vim'
 Plug 'Valloric/YouCompleteMe'
+Plug 'kopischke/vim-stay'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
+Plug 'tommcdo/vim-fugitive-blame-ext'
+" Plug 'klen/python-mode'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'tomlion/vim-solidity'
 
 " Colors
 Plug 'effkay/argonaut.vim'
@@ -117,19 +125,40 @@ set si "Smart indent
 set wrap "Wrap lines
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-else
-  set wildignore+=.git\*,.hg\*,.svn\*
-endif
+set wildignore=*.o
+set wildignore+=*~,
+set wildignore+=*.pyc,__pycache__
+set wildignore+=*/.DS_Store
 
 " Always show the status line
 set laststatus=2
 
+" Vim-Stay features
+set viewoptions=cursor,slash,unix
+
 " Margin
-let &colorcolumn=join(range(80,999),",")
+let &colorcolumn=join(range(80,80),",")
 highlight ColorColumn ctermbg=235
+
+" System clipboard on OSX
+set clipboard=unnamed
+
+set guifont=Menlo\ Regular:h12
+
+"""
+" Whitespace highlighting
+"
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+
+" Show trailing whitespace:
+match ExtraWhitespace /\s\+$/
+
+" Show trailing whitespace and spaces before a tab:
+match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+" Show tabs that are not at the start of a line:
+match ExtraWhitespace /[^\t]\zs\t\+/
 
 """
 " Custom commands
@@ -164,4 +193,36 @@ let g:jsx_ext_required = 0
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeShowHidden = 1
 
+let g:pymode_folding = 0
+
 colorscheme argonaut
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+"""
+" Lang specific overrides
+"
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+let python_highlight_all=1
+
+" YouCompleteMe virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" Fold with space
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
