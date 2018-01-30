@@ -18,6 +18,17 @@ function file_linked() {
     }
     function meet() {
         rm -f "$link_target"
+        mkdir -p "$(dirname "$link_target")"
         ln -s "$link_source" "$link_target"
+    }
+}
+
+function cask_tapped() {
+    cask="$1"
+    function is_met() {
+        brew tap | grep -e "^$cask\$"
+    }
+    function meet() {
+        brew tap "$cask"
     }
 }

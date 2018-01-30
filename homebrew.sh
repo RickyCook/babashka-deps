@@ -12,7 +12,8 @@ function homebrew_installed() {
     process
 }
 function homebrew_cask_installed() {
-    install_package brew-cask
+    install_package cask
+    install_package brew-cask-completion
     process
 }
 function homebrew_up_to_date() {
