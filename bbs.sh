@@ -1,6 +1,13 @@
 BBS_REPOS=(
     core-infra
+    crissp-extractor
     dutyofcare
+    dutyofcare-website
+    ggv-forms
+    ico
+    kitchen-sync
+    kubernetes-vault-wrapper
+    status
 )
 
 function bbs() {
