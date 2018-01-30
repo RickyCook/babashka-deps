@@ -1,5 +1,6 @@
 PACKAGES=(
     aria2
+    diff-so-fancy
     httpie
     fzf
     gnupg
