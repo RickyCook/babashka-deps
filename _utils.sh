@@ -34,11 +34,32 @@ function brew_tapped() {
 }
 function cask_installed()  {
     full_package="$1"
-    lite_package="$(basename "$full_package")"
+    lite_package="$(basename "$full_package" .git)"
     function is_met() {
         brew cask list | grep -e "^$lite_package\$"
     }
     function meet() {
         brew cask install "$full_package"
     }
+}
+function clone_repo() {
+    repo="$1"
+    if [[ -z "$2" ]]; then
+        repo_dir="$(basename "$repo" .git)"
+    else
+        repo_dir="$2"
+    fi
+
+    function is_met() {
+        [ -d "$HOME/code/$repo_dir" ]
+    }
+    function meet() {
+        /usr/local/bin/git clone "$repo" "$HOME/code/$repo_dir"
+    }
+}
+function github_clone_repo() {
+    clone_repo "git+ssh://git@github.com/$1.git" "$2"
+}
+function bbs_clone_repo() {
+    github_clone_repo "BlueBikeSolutions/$1" "$2"
 }
