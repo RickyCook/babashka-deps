@@ -5,6 +5,7 @@ while read dir; do
 done <<END
     $HOME/bin
     $HOME/.local/bin
+    $HOME/.babashka/src/bin
     /usr/local/bin
     /usr/local/sbin
     /usr/bin
