@@ -8,7 +8,11 @@ function bin_installed() {
 function file_linked() {
     link_target="$1"
     if [[ -n "$2" ]]; then
-        link_source="$HOME/.babashka/deps/files/$2"
+        if [[ "${2:0:1}" == '/' ]]; then
+            link_source="$2"
+        else
+            link_source="$HOME/.babashka/deps/files/$2"
+        fi
     else
         link_source="$HOME/.babashka/deps/files/$(basename $1)"
     fi
