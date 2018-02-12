@@ -1,10 +1,12 @@
 PACKAGES=(
     aria2
+    automake
     diff-so-fancy
     httpie
     fzf
     gnupg
     jq
+    libtool
     nmap
     packer
     parallel
