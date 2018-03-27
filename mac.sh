@@ -6,4 +6,5 @@ function mac() {
     requires vim
     requires packages
     requires casks
+    requires op_cli
 }
