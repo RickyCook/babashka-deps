@@ -7,4 +7,5 @@ function mac() {
     requires packages
     requires casks
     requires op_cli
+    requires helmfile
 }
