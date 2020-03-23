@@ -27,6 +27,17 @@ function file_linked() {
     }
 }
 
+function install_package() {
+    pkg="$1"
+    function is_met() {
+        brew list "$pkg" 2>&1 > /dev/null
+        # brew info --json --installed | jq -e '.[] | select(.name == "zsh")' > /dev/null
+    }
+    function meet() {
+        brew install "$pkg"
+    }
+}
+
 function brew_tapped() {
     cask="$1"
     function is_met() {
