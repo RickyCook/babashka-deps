@@ -1,15 +1,10 @@
 function vim() {
     requires vim_installed
-    requires macvim_installed
     requires vim_rc
     requires vim_plugins_installed
 }
 function vim_installed() {
     install_package vim
-    process
-}
-function macvim_installed() {
-    install_package macvim
     process
 }
 function vim_rc() {

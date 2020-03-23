@@ -27,6 +27,17 @@ function file_linked() {
     }
 }
 
+function install_package() {
+    pkg="$1"
+    function is_met() {
+        brew list "$pkg" 2>&1 > /dev/null
+        # brew info --json --installed | jq -e '.[] | select(.name == "zsh")' > /dev/null
+    }
+    function meet() {
+        brew install "$pkg"
+    }
+}
+
 function brew_tapped() {
     cask="$1"
     function is_met() {
@@ -36,7 +47,7 @@ function brew_tapped() {
         brew tap "$cask"
     }
 }
-function cask_installed()  {
+function cask_install()  {
     full_package="$1"
     lite_package="$(basename "$full_package" .git)"
     function is_met() {
