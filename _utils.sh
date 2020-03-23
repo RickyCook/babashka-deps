@@ -47,7 +47,7 @@ function brew_tapped() {
         brew tap "$cask"
     }
 }
-function cask_installed()  {
+function cask_install()  {
     full_package="$1"
     lite_package="$(basename "$full_package" .git)"
     function is_met() {
