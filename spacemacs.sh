@@ -36,3 +36,7 @@ function spacemacs_installed() {
     }
     process
 }
+function spacemacs_config_linked() {
+    file_linked ~/.spacemacs
+    process
+}
