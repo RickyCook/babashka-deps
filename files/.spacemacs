@@ -43,6 +43,7 @@ values."
      html
      typescript
      yaml
+     terraform
      docker
      spacemacs-ui-visual
      ;; ----------------------------------------------------------------
