@@ -34,7 +34,7 @@ values."
    '(
      ruby
      php
-   rust
+     rust
      sql
      elixir
      python
